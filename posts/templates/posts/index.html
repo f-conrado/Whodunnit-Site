@@ -2,10 +2,29 @@
 
 {% block content %}
 
+<h1 class="titulo-site">MY PAGE</h1>
 
-{% for postagem in postagens %}
-<p>{{ postagem.post_title }}</p>
-{% endfor %}
+<div class="grid-cont">
+    <div>Post title
+        <p>post subtitle</p>
+        <p>post 'tent</p>
+    </div>
+    <div>Post title
+        <p>post subtitle</p>
+        <p>post 'tent</p>
+    </div>
+    <div>
+
+    </div>
+</div>
+<!--{% for postagem in postagens %}
+
+<section class="content container">
+    <h2 class="section-header">{{ postagem.post_title }}</h2>
+    <h3 class="content container">{{ postagem.post_body }}</h3>
+</section>
+
+{% endfor %}-->
 
 
 {% endblock content %}

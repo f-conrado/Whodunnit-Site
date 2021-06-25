@@ -1,0 +1,18 @@
+{% extends 'posts/base.html' %}
+
+{% block content %}
+
+<h2 class="titulo-site titulo-pagina">CHAT</h2>
+<div id="pagina">
+    <div id="campo" class="texta chat-window">
+        <p class="mensagem"><span>Oi</span></p>
+    </div>
+    <div>
+        <textarea name="mensagem" type="text" class="input" id="input"></textarea>
+        <br>
+        <button onclick="sending()" id="lul" class="close-b enemies">Submit</button>
+    </div>
+</div>
+
+
+{% endblock content %}

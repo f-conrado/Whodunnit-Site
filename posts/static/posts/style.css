@@ -1,6 +1,356 @@
+@font-face{
+    font-family: ChaussonCFBold-Bold;
+    src: url(fonts/ChaussonCFBold-Bold.otf);
+    font-weight: bold;
+    font-style: normal;
+}
+
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;900&display=swap');
+
+* {
+    box-sizing: border-box;
+    font-family: 'Viaoda Libre';
+    font-weight: 400;
+    margin: 0;
+}
+
+h2 {
+    font-weight: 900;
+}
+
+h1 {
+    background: -webkit-linear-gradient(red, yellow);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+
+}
+
+html, body {
+    margin: 0;
+    padding: 0;
+}
+
+button{
+    border: none;
+}
+
+body{
+    min-height: 100vh;
+    background-image: url("images/paper2.png");
+    background-color: #000000;
+    display: flex;
+    flex-direction: column;
+}
+
+.nav ul {
+    margin: 0;
+}
+
+.nav li {
+    display: inline;
+}
+
+.nav a {
+    display: inline-block;
+    padding: .8em;
+    color: #ffffffcc;
+    text-decoration: none;
+
+}
+
+.main.nav {
+    font-size: 1.1em;
+    font-weight: lighter;
+    border-bottom: 1px solid rgba(255, 255, 255, .3)
+}
+
+.main-nav li {
+    padding: 0 5%;
+}
+
+.nav a:hover {
+    background-color: rgba(255, 255, 255, .3)
+}
+
 .main-header {
-    background-image: url("images/there-is-no-god.jpg");
-    background-repeat: no-repeat;
-    background-position: center;
+    /*background-image: url("images/paper3.jpg");
+    background-size: auto;
+    background-color: #000000;*/
+    padding-bottom: 10px;
+}
+
+.titulo-site{
+    text-align: center;
+    text-decoration: none;
+    margin: 0;
+    font-size: 4em;
+    font-family: "ChaussonCFBold-Bold";
+    padding: 16px;
+    color: #ffffffcc;
+}
+
+.titulo-pagina{
+    color: #ea00d9;
+}
+
+.char-name{
+    font-family: "ChaussonCFBold-Bold";
+    font-size: 3em;
+}
+
+.content {
+    margin: 1em;
+}
+
+.container {
+
+    margin: 0 auto;
+    padding: 0 1.5em;
+}
+
+.section-header {
+    text-align: center;
+}
+
+.enemies {
     background-size: 100%;
+    background: #71677C33;
+    margin: 1em 1.5em;
+    padding: 1em 1.5em;
+    border: 0;
+    display: block;
+    border-radius: 5px;
+}
+
+.enemies h2, .enemies h1 {
+    margin: 1.5rem 0;
+}
+
+.people {
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+}
+
+.foot {
+    background-image: url("images/paper2.png");
+    background-color: #000000;
+    color: #ea00d9;
+    padding: 1.5em 0;
+    margin-top: 1em;
+    align-items: bottom;
+    padding-left: 1em;
+}
+
+.images {
+    height: 250px;
+}
+
+.open-button {
+  background-color: #555;
+  color: white;
+  padding: 16px 20px;
+  border: none;
+  cursor: pointer;
+  opacity: 0.8;
+  position: fixed;
+  bottom: 23px;
+  right: 28px;
+  width: 280px;
+}
+
+/* The popup form - hidden by default */
+.form-popup {
+  display: none;
+  position: fixed;
+  bottom: 0;
+  right: 15px;
+  border: 3px solid #f1f1f1;
+  z-index: 9;
+}
+
+/* Add styles to the form container */
+.form-container {
+  max-width: 300px;
+  padding: 10px;
+  background-color: white;
+}
+
+/* Full-width input fields */
+.form-container input[type=text], .form-container input[type=password] {
+  width: 100%;
+  padding: 15px;
+  margin: 5px 0 22px 0;
+  border: none;
+  background: #f1f1f1;
+}
+
+/* When the inputs get focus, do something */
+.form-container input[type=text]:focus, .form-container input[type=password]:focus {
+  background-color: #ddd;
+  outline: none;
+}
+
+/* Set a style for the submit/login button */
+.form-container .btn {
+  background-color: #04AA6D;
+  color: white;
+  padding: 16px 20px;
+  border: none;
+  cursor: pointer;
+  width: 100%;
+  margin-bottom:10px;
+  opacity: 0.8;
+}
+
+/* Add a red background color to the cancel button */
+.form-container .cancel {
+  background-color: red;
+}
+
+/* Add some hover effects to buttons */
+.form-container, .btn:hover, .open-button:hover {
+    cursor: pointer;
+}
+
+/* The Modal (background) */
+.modal {
+  display: none; /* Hidden by default */
+  position: fixed; /* Stay in place */
+  z-index: 1; /* Sit on top */
+  left: 0;
+  top: 0;
+  width: 100%; /* Full width */
+  height: 100%; /* Full height */
+  overflow: auto; /* Enable scroll if needed */
+  background-color: rgb(0,0,0); /* Fallback color */
+  background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
+}
+
+/* Modal Content/Box */
+.modal-content {
+  background-color: #fefefe;
+  padding: 20px;
+  border: 1px solid #888;
+  margin: 0;
+  width: 100%;
+  height: 100%;
+}
+
+/* The Close Button */
+.close {
+  color: #aaa;
+  float: right;
+  font-size: 28px;
+  font-weight: bold;
+}
+
+.close:hover,
+.close:focus {
+  color: black;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+/* Modal Header */
+.modal-header {
+  padding: 2px 16px;
+  background-color: #5cb85c;
+  color: white;
+}
+
+/* Modal Body */
+.modal-body {padding: 2px 16px;}
+
+/* Modal Footer */
+.modal-footer {
+  padding: 2px 16px;
+  background-color: #5cb85c;
+  color: white;
+}
+
+/* Modal Content */
+.modal-content {
+  position: relative;
+  background-color: #fefefe;
+  padding: 0;
+  border: 1px solid #888;
+  box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2),0 6px 20px 0 rgba(0,0,0,0.19);
+  animation-name: animatetop;
+  animation-duration: 0.4s
+}
+
+/* Add Animation */
+@keyframes animatetop {
+  from {top: -300px; opacity: 0}
+  to {top: 0; opacity: 1}
+}
+
+.texta{
+    width: 40rem;
+    height: 10rem;
+    background: #71677C33;
+    margin: 1em 1.5em;
+    padding: 1em 1.5em;
+    border: 0;
+    display: block;
+    border-radius: 5px;
+    font-size: 2rem;
+}
+
+.input{
+    width: 40rem;
+    height: 2.5rem;
+    background: #71677C33;
+    margin: 1em 1.5em;
+    padding: 1em 1.5em;
+    border: 0;
+    display: block;
+    border-radius: 5px;
+    font-size: 2rem;
+}
+
+.grid-cont{
+    display: grid;
+    grid-template: auto / auto auto auto;
+    background-size: 100%;
+    color: #ea00d9;
+    background-image: url("images/paper2.png");
+    background-size: auto;
+    background-color: #00000099;
+    margin: 1em 1.5em;
+    padding: 1em 1.5em;
+    border: 0;
+}
+
+.btn-open{
+    border: none;
+}
+
+.close-b:hover{
+  color: black;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+.close-b{
+    margin-left: 3rem;
+}
+
+.mensagem span{
+    display: inline-block;
+    background: #ea00d9;
+    border-radius: 5px;
+    padding: 0 0.2rem;
+}
+
+.usador{
+    text-align: right;
+}
+
+.chat-window{
+    overflow: auto;
 }
