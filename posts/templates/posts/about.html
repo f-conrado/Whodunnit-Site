@@ -2,20 +2,17 @@
 
 {% block content %}
 
-<h2 class="titulo-site titulo-pagina">Your Page</h2>
+<h1 class="titulo-site titulo-pagina">Your Page</h1>
 <div class="grid-cont">
-    <div>Post title
-        <p>post subtitle</p>
-        <p>post 'tent</p>
+    {% for postagem in postagens %}
+    <div class="posts">
+        <h2>{{ postagem.post_title }}</h2>
+        <h3>{{ postagem.post_subtitle }}</h3>
+        <p>{{ postagem.post_body }}</p>
     </div>
-    <div>Post title
-        <p>post subtitle</p>
-        <p>post 'tent</p>
-    </div>
-    <div>
-
-    </div>
+    {% empty %}
+    <p class="empty"></p>
+    {% endfor %}
 </div>
-
 
 {% endblock content %}

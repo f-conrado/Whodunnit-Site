@@ -9,20 +9,13 @@
 
 * {
     box-sizing: border-box;
-    font-family: 'Viaoda Libre';
+    font-family: 'Castoro';
     font-weight: 400;
     margin: 0;
 }
 
 h2 {
     font-weight: 900;
-}
-
-h1 {
-    background: -webkit-linear-gradient(red, yellow);
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-
 }
 
 html, body {
@@ -36,8 +29,10 @@ button{
 
 body{
     min-height: 100vh;
-    background-image: url("images/paper2.png");
-    background-color: #000000;
+    background: rgb(252,250,255);
+    background-image: url("images/paper2.png"),
+    radial-gradient(circle, #FCFAFF33 20%, #F5E6D1ee 70%, #B6AA91ee 100%);
+    background-blend-mode: multiply;
     display: flex;
     flex-direction: column;
 }
@@ -55,13 +50,16 @@ body{
     padding: .8em;
     color: #ffffffcc;
     text-decoration: none;
-
+    font-family: "Viaoda Libre";
 }
 
-.main.nav {
+.main-nav {
+    font-family: "Viaoda Libre";
     font-size: 1.1em;
     font-weight: lighter;
-    border-bottom: 1px solid rgba(255, 255, 255, .3)
+    border-bottom: 1px solid #b8b9b533;
+    overflow: hidden;
+    height: 3em;
 }
 
 .main-nav li {
@@ -73,9 +71,6 @@ body{
 }
 
 .main-header {
-    /*background-image: url("images/paper3.jpg");
-    background-size: auto;
-    background-color: #000000;*/
     padding-bottom: 10px;
 }
 
@@ -84,13 +79,12 @@ body{
     text-decoration: none;
     margin: 0;
     font-size: 4em;
-    font-family: "ChaussonCFBold-Bold";
+    font-family: "Viaoda Libre";
     padding: 16px;
-    color: #ffffffcc;
 }
 
 .titulo-pagina{
-    color: #ea00d9;
+    color: #000000;
 }
 
 .char-name{
@@ -114,10 +108,11 @@ body{
 
 .enemies {
     background-size: 100%;
-    background: #71677C33;
+    background: #ffffff33;
     margin: 1em 1.5em;
+    margin-bottom: 5em;
     padding: 1em 1.5em;
-    border: 0;
+    border: 1px solid #00000033;
     display: block;
     border-radius: 5px;
 }
@@ -132,17 +127,12 @@ body{
     flex-direction: row;
     align-items: center;
     justify-content: center;
-    text-align: center;
 }
 
 .foot {
-    background-image: url("images/paper2.png");
-    background-color: #000000;
-    color: #ea00d9;
-    padding: 1.5em 0;
-    margin-top: 1em;
-    align-items: bottom;
+    padding: 1em 0;
     padding-left: 1em;
+    border-top: 1px solid #b8b9b533;
 }
 
 .images {
@@ -196,20 +186,16 @@ body{
 
 /* Set a style for the submit/login button */
 .form-container .btn {
+  font-size: 4em;
   background-color: #04AA6D;
   color: white;
   padding: 16px 20px;
   border: none;
   cursor: pointer;
   width: 100%;
-  margin-bottom:10px;
   opacity: 0.8;
 }
 
-/* Add a red background color to the cancel button */
-.form-container .cancel {
-  background-color: red;
-}
 
 /* Add some hover effects to buttons */
 .form-container, .btn:hover, .open-button:hover {
@@ -226,13 +212,13 @@ body{
   width: 100%; /* Full width */
   height: 100%; /* Full height */
   overflow: auto; /* Enable scroll if needed */
-  background-color: rgb(0,0,0); /* Fallback color */
-  background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
+  background-color: #ffffff33; /* Fallback color */
+  background-color: #ffffff33; /* Black w/ opacity */
 }
 
 /* Modal Content/Box */
 .modal-content {
-  background-color: #fefefe;
+  background-color: #fefefe33;
   padding: 20px;
   border: 1px solid #888;
   margin: 0;
@@ -275,7 +261,7 @@ body{
 /* Modal Content */
 .modal-content {
   position: relative;
-  background-color: #fefefe;
+  background-color: #fefefecc;
   padding: 0;
   border: 1px solid #888;
   box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2),0 6px 20px 0 rgba(0,0,0,0.19);
@@ -290,40 +276,36 @@ body{
 }
 
 .texta{
-    width: 40rem;
-    height: 10rem;
-    background: #71677C33;
-    margin: 1em 1.5em;
-    padding: 1em 1.5em;
+    width: 13.5em;
+    height: 14rem;
+    background: #CEC28833;
+    margin: 0.5em auto;
+    padding: 1.5em 1.5em;
     border: 0;
-    display: block;
     border-radius: 5px;
     font-size: 2rem;
 }
 
 .input{
-    width: 40rem;
-    height: 2.5rem;
-    background: #71677C33;
-    margin: 1em 1.5em;
-    padding: 1em 1.5em;
+    width: 27rem;
+    height: 3rem;
+    background: #CEC28833;
+    padding: 1em 1em;
     border: 0;
-    display: block;
     border-radius: 5px;
-    font-size: 2rem;
+    font-size: 1.5rem;
+    margin-bottom: 0.5em;
 }
 
 .grid-cont{
     display: grid;
-    grid-template: auto / auto auto auto;
-    background-size: 100%;
-    color: #ea00d9;
-    background-image: url("images/paper2.png");
-    background-size: auto;
-    background-color: #00000099;
-    margin: 1em 1.5em;
+    grid-template: auto / 1fr 1fr 1fr;
+    grid-gap: 5em;
+    text-align: center;
+    margin: 1em 3.5em;
     padding: 1em 1.5em;
     border: 0;
+    margin-bottom: 5em;
 }
 
 .btn-open{
@@ -336,15 +318,15 @@ body{
   cursor: pointer;
 }
 
-.close-b{
-    margin-left: 3rem;
-}
-
 .mensagem span{
+    height: 30%;
     display: inline-block;
-    background: #ea00d9;
+    background: #EEE6B5cc;
+    background-size: 50%;
     border-radius: 5px;
     padding: 0 0.2rem;
+    animation: bubbles 1s 1;
+    margin-bottom: 0.4em;
 }
 
 .usador{
@@ -353,4 +335,75 @@ body{
 
 .chat-window{
     overflow: auto;
+}
+
+.form {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: center;
+    margin: 0 auto;
+    font-size: 2em;
+}
+
+.btn {
+  font-size: 1em;
+  background-color: #EEE6B5cc;
+  color: ;
+  border: none;
+  cursor: pointer;
+  opacity: 0.8;
+}
+
+.cancel{
+    background: none;
+    margin-left: 87%;
+    margin-top: 5%;
+    font-size: 3em;
+}
+
+.cancel:hover, .enemies:hover{
+    cursor: pointer;
+}
+
+.pagina {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.pagina .close-b{
+    width: 6em;
+    overflow: auto;
+    margin-left: 22.3rem;
+    margin-top: 2em;
+    margin-bottom: 5em;
+    background-size: 100%;
+    background: #ffffff33;
+    padding: 1em 1em;
+    text-align: center;
+    border: 1px solid #00000033;
+    border-radius: 5px;
+}
+
+.mensagem {
+    margin-bottom: 0,5em;
+}
+
+@keyframes bubbles{
+  0% { font-size:0em; }
+  68% { font-size: 1em; }
+  100% { font-size: 2em%; }
+}
+
+.posts h2, h3 {
+    line-height: 2;
+}
+
+.formo{
+    margin: 2em 0;
+}
+
+.empty{
+    margin: 8em;
 }

@@ -8,12 +8,16 @@ from django.contrib.auth.forms import UserCreationForm
 import re
 
 def index(request):
-    postagem = Post.objects.all()
+    postagem = Post.objects.filter(post_author=2)
     response = {'postagens':postagem}
     return render(request, 'posts/index.html', response)
 
 def about(request):
-    return render(request, 'posts/about.html', {})
+    person = request.user
+    authors = Autor.objects.get(user=person)
+    postagem = Post.objects.filter(post_author=authors.user_id)
+    response = {'postagens': postagem, 'people': authors}
+    return render(request, 'posts/about.html', response)
 
 def enemies(request):
     authors = Autor.objects.all()
@@ -87,17 +91,27 @@ def char_login(request):
         form = UserCreationForm
     return render(request, 'posts/signup.html', {'form': form})
 
-def signup(request):
-    form = UserCreationForm()
-    return render(request, 'posts/signup.html', {'form':form})
+def amigos(request):
+    return render(request, 'posts/amigos.html')
+
+greetings = ["hi", "oi", "ola", "hello", "opa", "e ai"]
+greetings_res = ["que foi?", "hey, you", "sup"]
+default = ["you would say that"]
 
 def talker(request):
-    frase = request.split()
-    if "oi" in frase:
-        a = "tchau"
-        return(a)
-    #else:
-    #    return redirect('/posts/chat/')
+    print(request)
+    frase = ''.join(e for e in request if e.isalnum())
+    print(frase)
+    frase = frase.lower()
+    frase = frase.split()
+    for x in frase:
+        if x in greetings:
+            a = greetings_res[0]
+            greetings_res.append(a)
+            greetings_res.pop(0)
+            print(greetings_res)
+            return(a)
+    return(default[0])
 
 def submit_signup(request):
     #if request.method == 'POST':
@@ -130,7 +144,6 @@ def noLoad(request):
         #titulo = request.PUT.get('titulo')
         #autor = request.user
         mensagem = request.GET.get('input_text')
-        print(mensagem)
         #Conversa.objects.create(post_author=autor,
          #                       post_body=mensagem)
         a = talker(mensagem)

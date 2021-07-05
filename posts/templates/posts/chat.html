@@ -2,17 +2,12 @@
 
 {% block content %}
 
-<h2 class="titulo-site titulo-pagina">CHAT</h2>
-<div id="pagina">
+<h1 class="titulo-site titulo-pagina">Chat</h1>
+<div class="pagina" id="pagina" >
     <div id="campo" class="texta chat-window">
-        <p class="mensagem"><span>Oi</span></p>
     </div>
-    <div>
-        <textarea name="mensagem" type="text" class="input" id="input"></textarea>
-        <br>
-        <button onclick="sending()" id="lul" class="close-b enemies">Submit</button>
-    </div>
+        <input onkeydown="entere()" autocomplete="off" name="mensagem" type="text" class="input" id="input">
+        <button onclick="sending()" id="lul" class="close-b">Submit</button>
 </div>
-
 
 {% endblock content %}
