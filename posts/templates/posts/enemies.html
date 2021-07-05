@@ -1,0 +1,100 @@
+{% extends 'posts/base.html' %}
+
+{% load static %}
+
+{% block content %}
+
+<h1 class="titulo-site titulo-pagina">Inimigos</h1>
+<div class="people">
+    {% for authors in autores %}
+    {% if authors.user_id == 1 %}
+
+    <div>
+        <button type="submit" class=" enemies" onclick="openForm()">
+            <h1 class="char-name">{{ authors|capfirst }}</h1>
+            <img class="images" src="{% static 'posts\images\Cara1.png' %}">
+            <h2>Bad Boy</h2>
+            <h2>Pretty</h2>
+        </button>
+    </div>
+
+    {% endif %}
+    {% if authors.user_id == 3 %}
+    <div>
+        <button type="submit" class="enemies" onclick="openForm()">
+            <h1 class="char-name">{{ authors|capfirst }}</h1>
+            <img class="images" src="{% static 'posts\images\Cara2.png' %}">
+            <h2>Smart Ass</h2>
+            <h2>Ugly</h2>
+        </button>
+    </div>
+    {% endif %}
+    {% if authors.user_id == 4 %}
+    <div>
+        <button type="submit" class="enemies" onclick="openForm()">
+            <h1 class="char-name">{{ authors|capfirst }}</h1>
+            <img class="images" src="{% static 'posts\images\Cara3.png' %}">
+            <h2>Smart Ass</h2>
+            <h2>Ugly</h2>
+        </button>
+    </div>
+    {% endif %}
+    {% endfor %}
+
+    <!--<div class="enemies">
+        <h2>Sign up</h2>
+        <form action="submit" method="post" name="signup">{% csrf_token %}
+            {{ form.as_p }}
+            <p>
+                <label for="id_username">Username:</label>
+                <input type="text" name="username" maxlength="150" autocapitalize="none" autocomplete="username" autofocus="" required="" id="id_username">
+            </p>
+            <p>
+                <label for="id_password1">Password:</label>
+                <input type="password" name="password1" autocomplete="new-password" required="" id="id_password1">
+            </p>
+            <p>
+                <label for="id_password2">Password confirmation:</label>
+                <input type="password" name="password2" autocomplete="new-password" required="" id="id_password2">
+            </p>
+                <button type="submit">Sign up</button>
+        </form>
+    </div>-->
+
+<!--</div>
+<button type="submit" class="btn open" onclick="openForm()">Open</button>
+    <div class="form-popup" id="myForm">
+      <form action="/action_page.php" class="form-container">
+        <h1>Login</h1>
+
+        <label for="email"><b>Email</b></label>
+        <input type="text" placeholder="Enter Email" name="email" required>
+
+        <label for="psw"><b>Password</b></label>
+        <input type="password" placeholder="Enter Password" name="psw" required>
+
+        <button type="submit" class="btn">Login</button>
+        <button type="submit" class="btn cancel" onclick="closeForm()">Close</button>
+      </form>
+    </div> -->
+<!-- Trigger/Open The Modal -->
+
+
+<!-- The Modal -->
+    <div id="myModal" class="modal">
+
+      <!-- Modal content -->
+      <div class="modal-content">
+          <button class="cancel" onclick="closeForm()">X</button>
+          <form class="form" name="login" action="submit" method="POST">{% csrf_token %}
+          <input type="hidden" name="username" value="fabricio"></input>
+          <label class="formo">Password</label>
+          <input class="formo" type="password" name="password"></input>
+          <button class="btn formo" type="submit">Entrar</button>
+          </form>
+      </div>
+    </div>
+</div>
+
+
+{% endblock content %}
